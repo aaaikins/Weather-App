@@ -6,13 +6,15 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    flex-direction: column;
+    padding: 1rem;
 }
 
 
 #weather-container {
     background: rgba(255, 255, 255, 0.3);
-    max-width: 400px;
-    padding: 20px;
+    max-width: 90%;
+    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
@@ -21,12 +23,13 @@ body {
 }
 
 input {
-    width: calc(100% - 16px);
+    width: 100%;
     padding: 8px;
     box-sizing: border-box;
     border-radius: 10px;
     border: 1px solid white;
     margin-top: 20px;
+    font-size: 1rem;
 }
 
 button {
@@ -37,8 +40,8 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
-    width: 100px;
-    font-size: 15px;
+    width: 100%;
+    font-size: 1rem;
 }
 
 h2, label, p {
@@ -61,8 +64,9 @@ button:hover {
 }
 
 #weather-icon {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    max-width: 200px;
     margin: 0 auto 10px;
     margin-bottom: 0;
     display: none;
@@ -74,15 +78,16 @@ button:hover {
     white-space: nowrap;
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .hourly-item {
-    flex: 0 0 auto;
-    width: 80px;
+    flex: 1 1 auto;
+    width: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 1rem;
     color: white;
 }
 
@@ -95,4 +100,20 @@ button:hover {
 #hourly-heading {
     color: #fff;
     margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    #weather-container {
+        padding: 10px;
+    }
+
+    #hourly-forecast {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hourly-item {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
 }
