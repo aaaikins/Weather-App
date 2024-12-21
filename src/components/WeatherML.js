@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// src/components/WeatherML.jsx
+import React, { useState, useEffect, useCallback } from 'react';
 import { Umbrella, Shirt, Heart } from 'lucide-react';
 
 // Training data for weather recommendations
@@ -75,22 +76,21 @@ const trainingData = {
 const WeatherML = ({ weatherData }) => {
   const [recommendations, setRecommendations] = useState(null);
   
-  // Classification functions remain the same...
-  const classifyTemperature = (temp) => {
+  const classifyTemperature = useCallback((temp) => {
     if (temp <= trainingData.temp.cold.max) return 'cold';
     if (temp <= trainingData.temp.mild.max) return 'mild';
     return 'hot';
-  };
+  }, []);
 
-  const classifyCondition = (condition) => {
+  const classifyCondition = useCallback((condition) => {
     condition = condition.toLowerCase();
     for (const [key, values] of Object.entries(trainingData.conditions)) {
       if (values.some(val => condition.includes(val))) return key;
     }
     return 'misc';
-  };
+  }, []);
 
-  const generateRecommendations = (temp, condition) => {
+  const generateRecommendations = useCallback((temp, condition) => {
     const tempClass = classifyTemperature(temp);
     const conditionClass = classifyCondition(condition);
 
@@ -99,7 +99,7 @@ const WeatherML = ({ weatherData }) => {
       clothing: trainingData.recommendations.clothing[tempClass][conditionClass],
       health: trainingData.recommendations.health[tempClass][conditionClass]
     };
-  };
+  }, [classifyTemperature, classifyCondition]);
 
   useEffect(() => {
     if (weatherData) {
@@ -108,7 +108,7 @@ const WeatherML = ({ weatherData }) => {
       const recs = generateRecommendations(temp, condition);
       setRecommendations(recs);
     }
-  }, [weatherData]);
+  }, [weatherData, generateRecommendations]);
 
   if (!recommendations) return null;
 

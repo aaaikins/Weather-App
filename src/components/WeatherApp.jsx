@@ -114,7 +114,7 @@ const WeatherApp = () => {
                 </div>
                 <div className="bg-white/10 rounded-xl p-3">
                   <Sun className="w-6 h-6 text-white/70 mx-auto mb-2" />
-                  <div className="text-white/90">{Math.round(currentWeather.main.feels_like - 273.15)}°C</div>
+                  <div className="text-white/90">{kelvinToCelsius(currentWeather.main.feels_like)}°C</div>
                   <div className="text-white/70 text-sm">Feels Like</div>
                 </div>
               </div>
