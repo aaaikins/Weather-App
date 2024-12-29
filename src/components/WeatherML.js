@@ -1,4 +1,3 @@
-// src/components/WeatherML.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { Umbrella, Shirt, Heart } from 'lucide-react';
 
