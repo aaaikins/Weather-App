@@ -10,7 +10,7 @@ The Weather App is a simple and interactive web application that provides curren
 - Built using OpenWeathermap API for fetching real-time weather data
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: JavaScript, React.js, Tailwind CSS
 - **API**: OpenWeathermap API for weather data
 - **Version Control**: Git and GitHub
 
