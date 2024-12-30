@@ -7,11 +7,11 @@ The Weather App is a simple and interactive web application that provides curren
 - Search for weather information by city name
 - Display current temperature, weather conditions, and location details
 - Interactive and responsive user interface
-- Built using [OpenWeathermap API] for fetching real-time weather data
+- Built using OpenWeathermap API for fetching real-time weather data
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
-- **API**: [OpenWeathermap API] for weather data
+- **API**: OpenWeathermap API for weather data
 - **Version Control**: Git and GitHub
 
 ## Setup Instructions
